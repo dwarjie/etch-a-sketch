@@ -1,0 +1,41 @@
+
+// Global style
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: $main-background;
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+img {
+    width: 21px;
+    height: auto;
+}
+
+.btn {
+    background-color: $btn;
+    color: $light-text;
+    width: 3.1rem;
+    height: 1.3rem;
+}
+
+.wrapper {
+    width: 90%;
+    margin: .9rem auto;
+}
