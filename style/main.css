@@ -15,6 +15,7 @@ body {
 h1 {
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: .7rem;
 }
 
 h3 {
@@ -27,11 +28,17 @@ img {
   height: auto;
 }
 
-.btn {
+.btn-tools {
+  text-align: center;
   background-color: #39A2DB;
   color: #FFFFFF;
+  border-radius: 3px;
+  font-size: .5rem;
   width: 3.1rem;
-  height: 1.3rem;
+}
+
+.btn {
+  padding: .3rem .5rem;
 }
 
 .wrapper {
@@ -59,6 +66,68 @@ img {
           align-items: center;
   justify-items: center;
   border: 1px dashed #5e5e5e;
+}
+
+#tools-nav {
+  background-color: #053742;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3rem;
+}
+
+#tools-nav #pen {
+  margin-left: 1.2rem;
+}
+
+#tools-nav div {
+  margin-right: 1.2rem;
+}
+
+#tools-nav div img {
+  padding: .3rem;
+}
+
+#tools-nav .btn {
+  margin-right: .3rem;
+}
+
+#tools-nav #grid {
+  position: relative;
+  display: inline-block;
+}
+
+#tools-nav #grid #grid-btn {
+  background-color: #39A2DB;
+  border: none;
+  cursor: pointer;
+}
+
+#tools-nav #grid #grid-content {
+  display: none;
+  position: absolute;
+  background-color: #053742;
+  min-width: 3rem;
+  z-index: 1;
+}
+
+#tools-nav #grid #grid-content a {
+  color: #FFFFFF;
+  padding: .7rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+#tools-nav .show {
+  display: block;
 }
 
 .div-items {

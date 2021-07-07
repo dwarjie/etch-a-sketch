@@ -16,22 +16,22 @@
         <h3>This project is from Odin Project for JavaScript Path. Tell me what you think!</h3>
         <!-- Use js to make divs and add them to the container -->
         <div class="container" id="container"></div>
-        <div id="clear-btn" class="btn">Clear</div>
+        <div id="clear-btn" class="btn-tools">Clear</div>
         <div id="tools-nav">
-            <div id="pen"><img src="./assets/pen.png" alt="Pen tool"></div>
-            <div id="eraser"><img src="./assets/eraser.png" alt="Eraser tool"></div>
-            <div id="color-wheel"><img src="./assets/color_wheel.png" alt="Pick color"></div>
+            <div id="pen" class="btn-tools"><img src="./assets/pen.png" alt="Pen tool"></div>
+            <div id="eraser" class="btn-tools"><img src="./assets/eraser.png" alt="Eraser tool"></div>
+            <div id="color-wheel" class="btn-tools"><img src="./assets/color_wheel.png" alt="Pick color"></div>
             <!-- Drop down -->
-            <div id="grid" class="btn">
-                <button id="grid-btn"><img src="./assets/grid.png" alt="Grid number"></button>
+            <div id="grid" class="btn-tools">
+                <button onclick="dropDown" id="grid-btn"><img src="./assets/grid.png" alt="Grid number"></button>
                 <div id="grid-content">
                     <a href="#" id="small">16</a>
                     <a href="#" id="medium">32</a>
                     <a href="#" id="large">64</a>
                 </div>
             </div>
-            <div id="random-btn" class="btn">Random</div>
-            <div id="blacken-btn" class="btn">Blacken</div>
+            <div id="random-btn" class="btn-tools btn">Random</div>
+            <div id="blacken-btn" class="btn-tools btn">Blacken</div>
         </div>
         <!-- <div class="btn_container">
             <button class="btn" id="small">16</button>
@@ -42,6 +42,6 @@
     </div>
 
     <!-- script -->
-    <script src="app.js"></script>
+    <script src="./script/app.js"></script>
 </body>
 </html>

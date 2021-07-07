@@ -17,6 +17,63 @@
     border: 1px dashed rgb(94, 94, 94);
 }
 
+#tools-nav {
+    background-color: $black-text;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3rem;
+
+    #pen {
+        margin-left: 1.2rem;
+    }
+
+    div {
+        margin-right: 1.2rem;
+     
+        img {
+            padding: .3rem;
+        }
+    }
+
+    .btn {
+        margin-right: .3rem;
+    }
+
+    // dropdown
+    #grid {
+        position: relative;
+        display: inline-block;
+        
+        #grid-btn {
+            background-color: $btn;
+            border: none;
+            cursor: pointer;
+        }
+
+        #grid-content {
+            display: none;
+            position: absolute;
+            background-color: $black-text;
+            min-width: 3rem;
+            z-index: 1;
+        
+            a {
+                color: $light-text;
+                padding: .7rem 1rem;
+                text-decoration: none;
+                display: block;
+            }
+        }
+    }
+
+    .show {
+        display: block;
+    }
+    
+}
+
 .div-items {
     text-align: center;
     width: 100%;

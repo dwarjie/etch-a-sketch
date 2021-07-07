@@ -7,6 +7,12 @@ const btnLarge = document.querySelector('#large');
 const btnClear = document.querySelector('#clear');
 let canvasSize = 16;
 
+// toggle dropdown
+function dropDown() {
+	document.querySelector('#grid-content').classList.toggle('show');
+};
+
+
 // adding event click to buttons
 btnSmall.addEventListener('click', e => {
 	setCanvas(e);
@@ -17,7 +23,7 @@ btnMed.addEventListener('click', e => {
 btnLarge.addEventListener('click', e => {
 	setCanvas(e);
 });
-btnClear.addEventListener('click', clearCanvas);
+// btnClear.addEventListener('click', clearCanvas);
 
 divLoops();
 // set the size of the canvas
