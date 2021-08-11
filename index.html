@@ -31,14 +31,23 @@
           <img src="./assets/eraser.png" alt="Eraser tool" />
         </div>
         <div id="color-wheel" class="btn-tools">
-          <img src="./assets/color_wheel.png" alt="Pick color" />
+          <div onclick="colorWheel()" id="wheel" class="wheel">
+            <img
+              src="./assets/color_wheel.png"
+              alt="Pick color"
+              class="wheel"
+            />
+          </div>
+          <div id="pick-color" style="display: none">
+            <input type="color" id="picker" value="#ff0000" />
+          </div>
         </div>
         <!-- Drop down -->
         <div id="grid" class="btn-tools">
-          <button onclick="dropDown()" id="grid-btn">
-            <img src="./assets/grid.png" alt="Grid number" />
+          <button onclick="dropDown()" id="grid-btn" class="drop-down">
+            <img src="./assets/grid.png" alt="Grid number" class="drop-down" />
           </button>
-          <div id="grid-content">
+          <div id="grid-content" style="display: none">
             <a href="#" id="small">16</a>
             <a href="#" id="medium">32</a>
             <a href="#" id="large">64</a>

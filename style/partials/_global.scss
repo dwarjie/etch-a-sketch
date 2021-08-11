@@ -1,48 +1,52 @@
-
 // Global style
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background-color: $main-background;
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
+  background-color: $main-background;
+  text-align: center;
+  font-size: 100%;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: .7rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
 }
 
 h3 {
-    font-size: 1rem;
-    font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 img {
-    width: 21px;
-    height: auto;
+  width: 21px;
+  height: auto;
 }
 
 .btn-tools {
-    text-align: center;
-    background-color: $btn;
-    color: $light-text;
-    border-radius: 3px;
-    font-size: .5rem;
-    width: 3.1rem;
+  text-align: center;
+  background-color: $btn;
+  color: $light-text;
+  border-radius: 3px;
+  font-size: 0.5rem;
+  width: 3.1rem;
+}
+
+.btn-tools:hover {
+  background-color: $btn-hover;
+  cursor: pointer;
 }
 
 .btn {
-    padding: .3rem .5rem;   
+  padding: 0.3rem 0.5rem;
 }
 
 .wrapper {
-    width: 90%;
-    margin: .9rem auto;
+  width: 90%;
+  margin: 0.9rem auto;
 }

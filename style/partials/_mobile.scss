@@ -7,8 +7,8 @@
 
 .container {
   display: grid;
-  width: calc((100vw + 60vh) / 2);
-  height: calc((100vw + 60vh) / 2);
+  width: calc((100vw + 50vh) / 2);
+  height: calc((100vw + 50vh) / 2);
   grid-template-rows: repeat(var(--grid-rows));
   grid-template-columns: repeat(var(--grid-cols));
   margin: 30px auto 15px auto;
@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   height: 3rem;
 
   #pen {
@@ -45,24 +46,47 @@
     margin-right: 0.3rem;
   }
 
+  #color-wheel {
+    position: relative;
+    display: inline-block;
+
+    #wheel {
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #pick-color {
+      position: absolute;
+      background-color: $black-text;
+      bottom: 2.5rem;
+      width: 100%;
+      z-index: 1;
+      padding: 0.3rem;
+    }
+  }
+
   // dropdown
   #grid {
     position: relative;
     display: inline-block;
 
     #grid-btn {
-      background-color: $btn;
+      background: transparent;
       border: none;
       cursor: pointer;
+
+      img {
+        filter: alpha(Opacity=90);
+        opacity: 0.9;
+      }
     }
 
     #grid-content {
-      display: none;
       position: absolute;
       bottom: 2.5rem;
       background-color: $black-text;
       min-width: 5rem;
-      z-index: 999;
+      z-index: 1;
 
       a {
         color: $light-text;
@@ -70,7 +94,15 @@
         text-decoration: none;
         display: block;
       }
+
+      a:hover {
+        background-color: $btn-hover;
+      }
     }
+  }
+
+  #grid:hover {
+    background-color: $btn-hover;
   }
 }
 

@@ -2,17 +2,14 @@
 const gridContainer = document.querySelector("#container");
 const root = document.documentElement; // for the css
 const btnGrid = document.querySelector("#grid-content");
+const btnColorWheel = document.querySelector("#pick-color");
+const colorPicker = document.querySelector("#picker");
 const btnSmall = document.querySelector("#small");
 const btnMed = document.querySelector("#medium");
 const btnLarge = document.querySelector("#large");
 const btnClear = document.querySelector("#clear");
 let canvasSize = 16;
-
-// toggle dropdown
-function dropDown() {
-  if (btnGrid.style.display == "none") btnGrid.style.display = "block";
-  else btnGrid.style.display = "none";
-}
+let penColor = "#000000";
 
 // adding event click to buttons
 btnSmall.addEventListener("click", (e) => {
@@ -24,6 +21,8 @@ btnMed.addEventListener("click", (e) => {
 btnLarge.addEventListener("click", (e) => {
   setCanvas(e);
 });
+
+colorPicker.addEventListener("input", updateColor, false);
 // btnClear.addEventListener('click', clearCanvas);
 
 divLoops();
@@ -43,6 +42,7 @@ function divLoops() {
 function createDiv() {
   const divElem = document.createElement("div");
   divElem.classList.add("div-items");
+  divElem.setAttribute("style", "background-color: #ffffff");
 
   gridContainer.appendChild(divElem);
   // add eventListener after div is created
@@ -53,8 +53,8 @@ function createDiv() {
 
 function addColor(e) {
   let divElem = e.target;
-  if (!divElem.classList.contains("color_1")) {
-    divElem.classList.add("color_1");
+  if (divElem.style.backgroundColor == "rgb(255, 255, 255)") {
+    divElem.style.backgroundColor = penColor;
   }
 }
 
@@ -87,10 +87,39 @@ function clearCanvas() {
   }
 }
 
-function closeDropdown(event) {
-  dropDown();
+function updateColor(event) {
+  penColor = event.target.value;
+}
+
+// toggle color wheel
+function colorWheel() {
+  console.log("working");
+  if (btnColorWheel.style.display == "none")
+    btnColorWheel.style.display = "block";
+  else btnColorWheel.style.display = "none";
+}
+
+function closeWheel() {
+  if (btnColorWheel.style.display == "block")
+    btnColorWheel.style.display = "none";
+}
+
+// toggle dropdown
+function dropDown() {
+  if (btnGrid.style.display == "none") btnGrid.style.display = "block";
+  else btnGrid.style.display = "none";
+}
+
+function closeDropdown() {
+  if (btnGrid.style.display == "block") btnGrid.style.display = "none";
 }
 
 window.onclick = function (event) {
-  closeDropdown(event);
+  if (!event.target.matches(".drop-down")) {
+    closeDropdown();
+  }
+
+  if (!event.target.matches(".wheel")) {
+    closeWheel();
+  }
 };

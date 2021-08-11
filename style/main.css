@@ -4,10 +4,10 @@
 }
 
 body {
-  background-color: #E8F0F2;
+  background-color: #e8f0f2;
   text-align: center;
   font-size: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -15,7 +15,7 @@ body {
 h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
 }
 
 h3 {
@@ -30,20 +30,25 @@ img {
 
 .btn-tools {
   text-align: center;
-  background-color: #39A2DB;
-  color: #FFFFFF;
+  background-color: #39a2db;
+  color: #ffffff;
   border-radius: 3px;
-  font-size: .5rem;
+  font-size: 0.5rem;
   width: 3.1rem;
 }
 
+.btn-tools:hover {
+  background-color: #2e81ae;
+  cursor: pointer;
+}
+
 .btn {
-  padding: .3rem .5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 .wrapper {
   width: 90%;
-  margin: .9rem auto;
+  margin: 0.9rem auto;
 }
 
 .btn_container {
@@ -54,8 +59,8 @@ img {
 .container {
   display: -ms-grid;
   display: grid;
-  width: calc((100vw + 60vh) / 2);
-  height: calc((100vw + 60vh) / 2);
+  width: calc((100vw + 50vh) / 2);
+  height: calc((100vw + 50vh) / 2);
   -ms-grid-rows: ()[var];
       grid-template-rows: repeat(var(--grid-rows));
   -ms-grid-columns: ()[var];
@@ -85,6 +90,9 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 3rem;
 }
 
@@ -104,31 +112,62 @@ img {
   margin-right: 0.3rem;
 }
 
+#tools-nav #color-wheel {
+  position: relative;
+  display: inline-block;
+}
+
+#tools-nav #color-wheel #wheel {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#tools-nav #color-wheel #pick-color {
+  position: absolute;
+  background-color: #053742;
+  bottom: 2.5rem;
+  width: 100%;
+  z-index: 1;
+  padding: 0.3rem;
+}
+
 #tools-nav #grid {
   position: relative;
   display: inline-block;
 }
 
 #tools-nav #grid #grid-btn {
-  background-color: #39A2DB;
+  background: transparent;
   border: none;
   cursor: pointer;
 }
 
+#tools-nav #grid #grid-btn img {
+  filter: alpha(Opacity=90);
+  opacity: 0.9;
+}
+
 #tools-nav #grid #grid-content {
-  display: none;
   position: absolute;
   bottom: 2.5rem;
   background-color: #053742;
   min-width: 5rem;
-  z-index: 999;
+  z-index: 1;
 }
 
 #tools-nav #grid #grid-content a {
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0.7rem 1rem;
   text-decoration: none;
   display: block;
+}
+
+#tools-nav #grid #grid-content a:hover {
+  background-color: #2e81ae;
+}
+
+#tools-nav #grid:hover {
+  background-color: #2e81ae;
 }
 
 .div-items {
