@@ -46,6 +46,10 @@ img {
   padding: 0.3rem 0.5rem;
 }
 
+.btn-active {
+  background-color: $btn-hover;
+}
+
 .wrapper {
   width: 90%;
   margin: 0.9rem auto;

@@ -7,9 +7,15 @@ const colorPicker = document.querySelector("#picker");
 const btnSmall = document.querySelector("#small");
 const btnMed = document.querySelector("#medium");
 const btnLarge = document.querySelector("#large");
-const btnClear = document.querySelector("#clear");
+const btnPen = document.querySelector("#pen");
+const btnEraser = document.querySelector("#eraser");
+const btnClear = document.querySelector("#clear-btn");
+const btnRandom = document.querySelector("#random");
+const btnBlacken = document.querySelector("#blacken");
+
+let mode = "pen";
 let canvasSize = 16;
-let penColor = "#000000";
+let penColor = "rgba(0,0,0,1)";
 
 // adding event click to buttons
 btnSmall.addEventListener("click", (e) => {
@@ -22,10 +28,20 @@ btnLarge.addEventListener("click", (e) => {
   setCanvas(e);
 });
 
+btnClear.addEventListener("click", clearCanvas);
+btnPen.addEventListener("click", () => setNewBtnActive(btnPen));
+btnEraser.addEventListener("click", () => setNewBtnActive(btnEraser));
+btnRandom.addEventListener("click", () => setNewBtnActive(btnRandom));
+btnBlacken.addEventListener("click", () => setNewBtnActive(btnBlacken));
 colorPicker.addEventListener("input", updateColor, false);
-// btnClear.addEventListener('click', clearCanvas);
 
-divLoops();
+function setup() {
+  // Setup everything when the program loads
+  divLoops();
+  btnPen.classList.add("btn-active");
+}
+
+setup();
 // set the size of the canvas
 root.style.setProperty("--grid-rows", canvasSize + ", 2fr");
 root.style.setProperty("--grid-cols", canvasSize + ", 2fr");
@@ -42,7 +58,7 @@ function divLoops() {
 function createDiv() {
   const divElem = document.createElement("div");
   divElem.classList.add("div-items");
-  divElem.setAttribute("style", "background-color: #ffffff");
+  divElem.setAttribute("style", "background-color: " + `rgba(255,255,255,1)`);
 
   gridContainer.appendChild(divElem);
   // add eventListener after div is created
@@ -53,7 +69,23 @@ function createDiv() {
 
 function addColor(e) {
   let divElem = e.target;
-  if (divElem.style.backgroundColor == "rgb(255, 255, 255)") {
+  // check the pen mode
+  switch (mode) {
+    case "pen":
+      penColor = "rgba(0,0,0,1)";
+      break;
+    case "eraser":
+      penColor = "rgba(255,255,255,1)";
+      break;
+    // case "random":
+    //   randomColor(e);
+    //   break;
+    case "blacken":
+      blackenColor(e);
+      break;
+  }
+
+  if (divElem.style.backgroundColor != penColor) {
     divElem.style.backgroundColor = penColor;
   }
 }
@@ -83,12 +115,52 @@ function setCanvas(e) {
 function clearCanvas() {
   const items = document.querySelectorAll(".div-items");
   for (const item of items) {
-    item.classList.remove("color_1");
+    item.style.backgroundColor = "#ffffff";
   }
 }
 
-function updateColor(event) {
-  penColor = event.target.value;
+function setNewBtnActive(newButton) {
+  // remove the active class to a button
+  const activeClass = "btn-active";
+  btnPen.classList.remove(activeClass);
+  btnEraser.classList.remove(activeClass);
+  btnRandom.classList.remove(activeClass);
+  btnBlacken.classList.remove(activeClass);
+
+  // set new active
+  newButton.classList.add(activeClass);
+  setMode(newButton);
+}
+
+function setMode(newMode) {
+  switch (newMode) {
+    case btnPen:
+      mode = "pen";
+      break;
+    case btnEraser:
+      mode = "eraser";
+      break;
+    case btnRandom:
+      mode = "random";
+      break;
+    case btnBlacken:
+      mode = "blacken";
+      break;
+  }
+}
+
+/* Functionalities
+ * Pen /
+ * Eraser
+ * Color Picker /
+ * Canvas Grid /
+ * Random Color
+ * Blacken / Shadow
+ */
+
+function blackenColor(e) {
+  let currColor = e.target.style.backgroundColor;
+  console.log(currColor);
 }
 
 // toggle color wheel
@@ -102,6 +174,10 @@ function colorWheel() {
 function closeWheel() {
   if (btnColorWheel.style.display == "block")
     btnColorWheel.style.display = "none";
+}
+
+function updateColor(event) {
+  penColor = event.target.value;
 }
 
 // toggle dropdown
